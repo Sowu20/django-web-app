@@ -1,0 +1,25 @@
+{% extends 'listings/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Détails sur le groupe</h1>
+            </div>
+        </div>      
+        <h2>{{ title.name }}</h2>
+    </section>
+    
+    <div class="container">
+        <p>Type : {{ title.get_type_display }}</p>
+        <p>Année de création : {{ title.year }}</p>
+        <p>Vendu : {{ title.sold|yesno }}</p>
+        <br>
+        <p>{{ title.description }}</p>
+        <a href="{% url 'listings-list' %}"><input type="submit" class="btn btn-primary"value="Retour aux annonces"></a>
+        <a href="{% url 'listings-update' title.id %}"><input type="submit" class="btn btn-secondary"value="Modifier cette annonces"></a>
+        <a href="{% url 'listings-delete' title.id %}"><input type="submit" class="btn btn-danger"value="Supprimer cette annonces"></a>
+    </div>
+   
+{% endblock %}

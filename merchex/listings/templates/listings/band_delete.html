@@ -1,0 +1,21 @@
+{% extends 'listings/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Supprimer un groupe</h1>
+            </div>
+        </div>
+        <p>Etes-vous sûr de vouloir supprimer le groupe: {{ band.name }}</p>
+    </section>
+ 
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Supprimer">
+            <a href="{% url 'band-list' %}"><input type="submit" class="btn btn-primary" value="Retour"></a>
+        </form>
+    </div>
+{% endblock %}

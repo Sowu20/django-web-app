@@ -1,0 +1,27 @@
+{% extends 'listings/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Détails sur le groupe</h1>
+            </div>
+        </div>
+        <h1>{{ band.name }}</h1>
+    </section>
+    
+    <div class="container">
+            <p>Genre : {{ band.get_genre_display }}</p>
+            <p>Année de création : {{ band.year_formed }}</p>
+            <p>Actif : {{ band.active|yesno }}</p>
+            {% if band.official_homepage %}
+                <a href="{{ band.official_homepage }}">{{ band.official_homepage }}</a>
+            {% endif %}
+    
+        <p>{{ band.biography }}</p>
+        <a href="{% url 'band-update' band.id %}"><input type="submit" class="btn btn-primary" value="Modifier ce groupe"></a>
+        <a href="{% url 'band-list' %}"><input type="submit" class="btn btn-secondary" value="Retour à tous les groupes"></a>
+        <a href="{% url 'band-delete' band.id %}"><input type="submit" class="btn btn-danger" value="Supprimer ce groupe"></a>
+    </div>
+{% endblock %}

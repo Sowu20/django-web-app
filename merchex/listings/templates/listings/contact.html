@@ -1,0 +1,23 @@
+{% extends 'listings/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Contactez Nous</h1>
+                <p>Nous sommes là pour vous aider.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" class="btn btn-primary" value="Envoyer">
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'listings/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Mettre à jour le groupe</h1>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" class="btn btn-primary" value="Mettre à jour">
+        </form>
+    </div>
+{% endblock %}
